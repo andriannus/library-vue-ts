@@ -270,7 +270,7 @@ import moment from 'moment';
 })
 
 export default class BookAdmin extends Vue {
-  private socket = io.connect('http://localhost:8081');
+  private socket = io.connect('http://localhost:7777');
   private bookId = '';
   private color = '';
   private snackbarText = '';

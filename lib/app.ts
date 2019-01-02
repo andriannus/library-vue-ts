@@ -74,7 +74,7 @@ export class App {
       console.log(`Running server on port ${config.app.port}`);
     });
 
-    this.io.on("connect", (socket: any) => {
+    this.io.on("connection", (socket: any) => {
       console.log("Socket.io: Connected");
 
       socket.on("fetch-book", () => {
