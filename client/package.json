@@ -9,14 +9,25 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@mdi/font": "^3.3.92",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.23.0",
+    "socket.io-client": "^2.2.0",
+    "vee-validate": "^2.1.4",
     "vue": "^2.5.21",
+    "vue-axios": "^2.1.4",
     "vue-class-component": "^6.0.0",
+    "vue-meta": "^1.5.8",
     "vue-property-decorator": "^7.0.0",
     "vue-router": "^3.0.1",
+    "vuetify": "^1.4.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
+    "@types/lodash": "^4.14.119",
+    "@types/socket.io-client": "^1.4.32",
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-plugin-typescript": "^3.2.0",
     "@vue/cli-plugin-unit-jest": "^3.2.0",
