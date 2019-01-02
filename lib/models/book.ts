@@ -1,8 +1,6 @@
-import * as mongoose from "mongoose";
+import { model, Schema } from "mongoose";
 
-const Schema = mongoose.Schema;
-
-export const BookSchema = new Schema({
+const BookSchema = new Schema({
   author: String,
   date: {
     default: Date.now,
@@ -13,3 +11,5 @@ export const BookSchema = new Schema({
   page: Number,
   publisher: String,
 });
+
+export const Book = model("Book", BookSchema);

@@ -1,9 +1,6 @@
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 import * as _ from "lodash";
-import * as mongoose from "mongoose";
-import { BookSchema } from "../models/book";
-
-const Book = mongoose.model("Book", BookSchema);
+import { Book } from "../models/book";
 
 export class BookController {
   public getBooks(req: Request, res: Response): void {
@@ -63,8 +60,7 @@ export class BookController {
   public getBook(req: Request, res: Response): void {
     const bookId = req.params.id;
 
-    Book
-      .findById(bookId)
+    Book.findById(bookId)
       .exec((err, book) => {
         if (err) {
           res.status(200).send({
@@ -165,8 +161,7 @@ export class BookController {
   public checkISBN(req: Request, res: Response): void {
     const { isbn } = req.body;
 
-    Book
-      .findOne({ isbn })
+    Book.findOne({ isbn })
       .exec((err, book) => {
         if (err) {
           res.status(200).send({

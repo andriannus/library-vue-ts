@@ -11,6 +11,6 @@ router.get("/:id", bookController.getBook);
 router.post("/", isAuthentication, bookController.addBook);
 router.post("/update", isAuthentication, bookController.updateBook);
 router.post("/delete", isAuthentication, bookController.deleteBook);
-router.post("checkIsbn", bookController.checkISBN);
+router.post("/checkIsbn", bookController.checkISBN);
 
 export { router as bookRouter };
