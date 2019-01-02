@@ -139,7 +139,7 @@ export class BookController {
   }
 
   public deleteBook(req: Request, res: Response): void {
-    const bookId = req.params.id;
+    const bookId = req.body.id;
 
     Book.findByIdAndDelete(bookId, (err) => {
       if (err) {
