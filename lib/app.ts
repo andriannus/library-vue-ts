@@ -4,6 +4,7 @@ import * as express from "express";
 import { createServer, Server } from "http";
 import * as mongoose from "mongoose";
 import * as morgan from "morgan";
+import * as path from "path";
 import * as socketIO from "socket.io";
 import { config } from "./config/index";
 import { authRouter } from "./routes/auth";
@@ -57,12 +58,18 @@ export class App {
     this.app.use(bodyParser.urlencoded({
       extended: false,
     }));
+
+    this.app.use(express.static("client/dist"));
   }
 
   private routes(): void {
     this.app.use("/api/v1/auth", authRouter);
     this.app.use("/api/v1/book", bookRouter);
     this.app.use("/api/v1/user", userRouter);
+
+    this.app.get("*", (req: express.Request, res: express.Response) => {
+      res.sendFile(path.resolve(__dirname, "client/dist/index.html"));
+    });
   }
 
   private sockets(): void {
