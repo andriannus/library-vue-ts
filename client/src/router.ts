@@ -2,15 +2,15 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import store from './store';
 
-import Register from './views/Register.vue';
-import Login from './views/Login.vue';
-import LayoutAdmin from './views/admin/LayoutAdmin.vue';
-import LayoutUser from './views/user/LayoutUser.vue';
-import HomeAdmin from './views/admin/HomeAdmin.vue';
-import HomeUser from './views/user/HomeUser.vue';
-import BookAdmin from './views/admin/BookAdmin.vue';
-import BookUser from './views/user/BookUser.vue';
-import ProfileUser from './views/user/ProfileUser.vue';
+const Register = () => import('./views/Register.vue');
+const Login = () => import('./views/Login.vue');
+const LayoutAdmin = () => import('./views/admin/LayoutAdmin.vue');
+const LayoutUser = () => import('./views/user/LayoutUser.vue');
+const HomeAdmin = () => import('./views/admin/HomeAdmin.vue');
+const HomeUser = () => import('./views/user/HomeUser.vue');
+const BookAdmin = () => import('./views/admin/BookAdmin.vue');
+const BookUser = () => import('./views/user/BookUser.vue');
+const ProfileUser = () => import('./views/user/ProfileUser.vue');
 
 Vue.use(Router);
 
