@@ -86,7 +86,7 @@ export default new Vuex.Store({
     AUTH_REFRESH: ({commit}, id) => {
       return new Promise((resolve, reject) => {
         commit('AUTH_REQUEST');
-        axios.post('auth/refreshToken', id)
+        axios.post('auth/refreshUser', id)
           .then((res) => {
             let err;
 
@@ -99,15 +99,10 @@ export default new Vuex.Store({
             }
 
             if (res.data.status === 200) {
-              const token = res.data.token;
               const user = JSON.stringify(res.data.user);
 
-              localStorage.setItem('t-t', token);
               localStorage.setItem('u-d', user);
 
-              axios.defaults.headers.common['t-t'] = token;
-
-              commit('AUTH_SUCCESS', token);
               commit('USER_DATA', res.data.user);
               resolve(res);
             }

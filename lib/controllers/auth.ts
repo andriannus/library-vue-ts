@@ -40,7 +40,7 @@ export class AuthController {
               });
             } else {
               jwt.sign(
-                { user },
+                { email },
                 config.jwt.secretKey,
                 { expiresIn: config.jwt.expiresIn },
                 (fail, token) => {
@@ -150,7 +150,7 @@ export class AuthController {
       });
   }
 
-  public refreshToken(req: Request, res: Response) {
+  public refreshUser(req: Request, res: Response) {
     const { _id } = req.body;
 
     User.findById(_id)
@@ -168,28 +168,12 @@ export class AuthController {
             success: false,
           });
         } else {
-          jwt.sign(
-            { user },
-            config.jwt.secretKey,
-            { expiresIn: config.jwt.expiresIn },
-            (fail, token) => {
-              if (fail) {
-                res.status(200).send({
-                  message: fail,
-                  status: 500,
-                  success: false,
-                });
-              }
-
-              res.status(200).header("t-t", token).send({
-                message: "Login successful",
-                status: 200,
-                success: true,
-                token,
-                user,
-              });
-            },
-          );
+          res.status(200).send({
+            message: "Refresh User successful",
+            status: 200,
+            success: true,
+            user,
+          });
         }
       });
   }

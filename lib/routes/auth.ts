@@ -8,6 +8,6 @@ router.post("/login", authController.login);
 router.post("/register", authController.register);
 router.post("/checkEmail", authController.checkEmail);
 router.post("/checkUsername", authController.checkUsername);
-router.post("/refreshToken", authController.refreshToken);
+router.post("/refreshUser", authController.refreshUser);
 
 export { router as authRouter };
